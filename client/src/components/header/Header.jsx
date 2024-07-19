@@ -38,7 +38,7 @@ function Header() {
             <div className="headerListItem">
                 <FontAwesomeIcon icon={faTaxi} />
 
-               <span>Airport Taxis</span>
+               <span>Airport Taxis </span>
             </div>
         </div>
          <h1 className="headerTtile">A lifeTime of Discount? It's Genius</h1>
