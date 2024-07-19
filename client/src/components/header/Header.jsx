@@ -42,7 +42,7 @@ function Header() {
             </div>
         </div>
          <h1 className="headerTtile">A lifeTime of Discount? It's Genius</h1>
-         <p className="headerDescription">Lorem ipsum, dolor sit amet consectetur adipisicing</p>
+         <p className="headerDescription">Lorem ipsum, dolor sit amet consectetur adipisicing </p>
          <button className='headerButton'>Sign in / Register</button>
 
 
@@ -50,9 +50,9 @@ function Header() {
             
             <div className="headerSearchItem">
 
-                <FontAwesomeIcon icon={faBed} className='headerIcon' />
+                 <FontAwesomeIcon icon={faBed} className='headerIcon' />
 
-                <input type="text" placeholder='Where are you going' className='headerSearchInput'/>
+                 <input type="text" placeholder='Where are you going' className='headerSearchInput'/>
             </div>
 
 
@@ -66,7 +66,7 @@ function Header() {
 
 
 
-            <div className="headerSearchItem">
+             <div className="headerSearchItem">
 
                 <FontAwesomeIcon icon={faPerson} className='headerIcon' />
                 <span className='headerSeachText'> to adults 2 children 1 room</span>
