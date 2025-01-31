@@ -1,5 +1,6 @@
 import express from "express"
 import Hotel from "../models/hotel.js";
+import { createError } from "../utils/error.js";
 
 
 const router = express.Router();
@@ -9,7 +10,7 @@ router.post("/" , async (req , res) => {
    
     const newHotel = new Hotel(req.body)
 
-   
+  
 
     try {
       
@@ -66,9 +67,10 @@ router.delete("/:id" , async (req , res) => {
 //get
 
 
-router.get("/:id" , async (req , res) => {
+router.get("/:id" , async (req , res, next) => {
    
-    
+    console.log("in a hotel route")
+    return next()
 
    
     try {
@@ -85,10 +87,11 @@ router.get("/:id" , async (req , res) => {
 })
 //get all
 
-router.get("/" , async (req , res) => {
+router.get("/" , async (req , res, next) => {
    
     
-
+  //const failed = true
+ // if(failed) return next(createError(401, "You are not authorized to access this route"));
    
     try {
       
@@ -97,7 +100,7 @@ router.get("/" , async (req , res) => {
         
     } catch (err) {
 
-        res.status(500).json(err)
+        next(err)
         
     }
     
