@@ -20,6 +20,10 @@ dotent.config()
     throw error
   }
 };
+mongoose.connection.on("connected", () =>{
+
+  console.log("Connected monogoDB")
+})
 
 
 mongoose.connection.on("disconnected", () =>{
