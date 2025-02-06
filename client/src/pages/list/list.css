@@ -13,7 +13,7 @@
   
   .listSearch {
     flex: 1;
-    background-color: #febb02;
+    background-color: #109bfd;
     padding: 10px;
     border-radius: 10px;
     position: sticky;
@@ -23,7 +23,7 @@
   
   .lsTitle{
     font-size: 20px;
-    color: #555;
+    color: #ffffff;
     margin-bottom: 10px;
   }
   
@@ -60,7 +60,7 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
-    color: #555;
+    color: #ffffff;
     font-size: 12px;
   }
   
