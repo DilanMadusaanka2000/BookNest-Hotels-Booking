@@ -4,10 +4,12 @@ import Hotel from "../models/hotel.js";
 
 
 export const createHotel = async (req, res, next ) => {
-
+   
+     
     const newHotel = new Hotel(req.body)
         try {
-          
+         // console.log(req.body);
+
             const saveHotel = await newHotel.save()
             res.status(200).json(saveHotel)
             

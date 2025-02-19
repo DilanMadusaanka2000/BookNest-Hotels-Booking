@@ -13,18 +13,18 @@ const UserSchema = new mongoose.Schema(
     },
     country: {
       type: String,
-      required: false,
+      required: true,
     },
     img: {
       type: String,
     },
     city: {
       type: String,
-      required: false,
+      required: true,
     },
     phone: {
       type: String,
-      required: false,
+      required: true,
     },
     password: {
       type: String,
@@ -32,7 +32,7 @@ const UserSchema = new mongoose.Schema(
     },
     isAdmin: {
       type: Boolean,
-      default: false,
+      default: true,
     },
   },
   { timestamps: true }
