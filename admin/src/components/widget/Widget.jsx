@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+import axios from "axios"; // Import axios for API requests
 import "./widget.scss";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
@@ -6,12 +8,37 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
 
 const Widget = ({ type }) => {
-  let data;
+  const [userCount, setUserCount] = useState(0);
+  const [hotelCount, setHotelCount] = useState(0);
 
-  //temporary
-  const amount = 100;
-  const diff = 20;
+  const amount = type === "user" ? userCount : type === "hotels" ? hotelCount : 0;
 
+  useEffect(() => {
+    if (type === "user") {
+      axios
+        .get("http://localhost:8800/api/users")
+        .then((response) => {
+          console.log("Users API Response:", response.data);
+          setUserCount(response.data.length);
+        })
+        .catch((error) => {
+          console.error("Error fetching users:", error);
+        });
+    } else if (type === "hotels") {
+      
+      axios
+        .get("http://localhost:8800/api/hotel/count")
+        .then((response) => {
+          console.log("Hotels API Response:", response.data);
+          setHotelCount(response.data.length);
+        })
+        .catch((error) => {
+          console.error("Error fetching hotels:", error);
+        });
+    }
+  }, [type]);
+  let data = {}; // Initialize data as an empty object to avoid undefined errors
+  
   switch (type) {
     case "user":
       data = {
@@ -29,11 +56,11 @@ const Widget = ({ type }) => {
         ),
       };
       break;
-    case "order":
+    case "hotels":
       data = {
-        title: "ORDERS",
+        title: "HOTELS", // Ensure this is the correct label
         isMoney: false,
-        link: "View all orders",
+        link: "See all hotels",
         icon: (
           <ShoppingCartOutlinedIcon
             className="icon"
@@ -58,23 +85,14 @@ const Widget = ({ type }) => {
         ),
       };
       break;
-    case "balance":
-      data = {
-        title: "BALANCE",
-        isMoney: true,
-        link: "See details",
-        icon: (
-          <AccountBalanceWalletOutlinedIcon
-            className="icon"
-            style={{
-              backgroundColor: "rgba(128, 0, 128, 0.2)",
-              color: "purple",
-            }}
-          />
-        ),
-      };
-      break;
+    
     default:
+      data = {
+        title: "test",
+        isMoney: false,
+        link: "Check details",
+        icon: null,
+      };
       break;
   }
 
@@ -82,15 +100,12 @@ const Widget = ({ type }) => {
     <div className="widget">
       <div className="left">
         <span className="title">{data.title}</span>
-        <span className="counter">
-          {data.isMoney && "$"} {amount}
-        </span>
+        <span className="counter">{amount}</span> {/* Display the relevant count */}
         <span className="link">{data.link}</span>
       </div>
       <div className="right">
         <div className="percentage positive">
           <KeyboardArrowUpIcon />
-          {diff} %
         </div>
         {data.icon}
       </div>

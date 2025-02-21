@@ -10,8 +10,9 @@ const Datatable = ({ columns }) => {
   const [list, setList] = useState([]);
   const location = useLocation();
   const path = location.pathname.split("/")[1];
-
+   
   const { data, loading, error } = useFetch(`/${path}`);
+  console.log(data);
 
 
   //console.log(data)
@@ -21,7 +22,7 @@ const Datatable = ({ columns }) => {
      setList(data)
   },[data])
 
- 
+ //delete function 
   const handleDelete = async (id) => {
     try {
       await axios.delete(`/${path}/${id}`);

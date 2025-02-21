@@ -16,7 +16,7 @@ const router = express.Router();
   
   //delete
   
-  router.delete("/:id/:hotelid" , verifyAdmin, deleteRoom)
+  router.delete("/:id" , deleteRoom)
   
   //get
   

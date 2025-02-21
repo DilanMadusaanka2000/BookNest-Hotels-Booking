@@ -6,12 +6,18 @@ import CreditCardIcon from "@mui/icons-material/CreditCard";
 import StoreIcon from "@mui/icons-material/Store";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 const Sidebar = () => {
-  const { dispatch } = useContext(DarkModeContext);
+  //const { dispatch } = useContext(DarkModeContext);
+  const { dispatch: authDispatch } = useContext(AuthContext);
+  const handleLogout = () => {
+    authDispatch({ type: "LOGOUT" }); // Dispatch logout action
+    Navigate("/"); // Redirect to login page
+  };
   return (
     <div className="sidebar">
       <div className="top">
@@ -53,10 +59,11 @@ const Sidebar = () => {
           </li>
           <li>
             <ExitToAppIcon className="icon" />
-            <span>Logout</span>
+            <span onClick={handleLogout}>Logout</span>
           </li>
         </ul>
       </div>
+      
       
     </div>
   );
