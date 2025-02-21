@@ -15,10 +15,13 @@ const NewHotel = () => {
   const { data, loading, error } = useFetch("/rooms");
   //console.log("Rooms Data:", data);
 
+  
+
+  
   const handleChange = (e) => {
     setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
-
+ 
   const handleSelect = (e) => {
     const value = Array.from(
       e.target.selectedOptions,
