@@ -1,4 +1,5 @@
 import Hotel from "../models/hotel.js";
+import Room from "../models/room.js";
 
 
 

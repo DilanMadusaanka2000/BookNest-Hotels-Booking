@@ -70,7 +70,7 @@ app.use((err, req, res, next) => {
 
 
 
-app.listen(8800, () => {
+app.listen(8000, () => {
     connect()
     console.log("🚀 Server is start 🚀")
 })

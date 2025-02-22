@@ -7,12 +7,12 @@ const router = express.Router();
 
   
   //create
-  router.post("/:hotelId" , verifyAdmin, createRoom )
+  router.post("/:hotelid",createRoom )
   
   
   //update
   router.put("/:id" , verifyAdmin, updateRoom)
-  router.put("availability/:id", updateRoomAvailability);
+  router.put("/availability/:id", updateRoomAvailability);
   
   //delete
   

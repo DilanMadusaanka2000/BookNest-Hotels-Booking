@@ -10,6 +10,7 @@ import { Link, Navigate } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import Profile from "../profile/Profile";
 
 const Sidebar = () => {
   //const { dispatch } = useContext(DarkModeContext);
