@@ -11,6 +11,8 @@ import { AuthContext } from "./context/AuthContext";
 import { hotelColumns, roomColumns, userColumns } from "./datatablesource";
 import NewHotel from "./pages/newHotel/NewHotel";
 import NewRoom from "./pages/newRoom/NewRoom";
+import Profile from "./components/profile/Profile";
+import ProfileEdit from "./components/profileEdit/ProfileEdit";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -96,6 +98,26 @@ function App() {
                 }
               />
             </Route>
+                
+            <Route
+            
+              path="profile"
+              element={
+                <ProtectedRoute>
+                  <Profile />
+                </ProtectedRoute>
+              }
+            >
+              
+              
+            </ Route>
+
+            <Route
+            
+             path="/profile/:userDetails" element={<ProfileEdit />} 
+            >
+              
+            </ Route>
           </Route>
         </Routes>
       </BrowserRouter>
