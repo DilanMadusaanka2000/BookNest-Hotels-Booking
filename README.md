@@ -10,7 +10,7 @@ Welcome to the **Hotel Booking System** repository! This project is built using 
 - **CRUD Operations:** Full CRUD capabilities for managing hotels, rooms, and reservations.
 - **Image Upload with Cloudinary:** Store and retrieve hotel and room images from Cloudinary.
 - **Search & Filter:** Search hotels by name, location, and amenities through a backend API.
-- **Reservation Management:** Handle room availability, booking, and cancellations.
+- **Reservation Management:** Handle room availability, booking.
 - **Admin Dashboard:** Manage users, bookings, and hotel details.
 - **Data Fetching with Custom Hooks:** Optimized API requests using React hooks.
 - **Context API for State Management:** Manage global app state with React Context.
